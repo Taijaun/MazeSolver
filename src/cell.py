@@ -2,7 +2,7 @@ from tkinter import Canvas
 from line import Line, Point
 
 class Cell():
-    def __init__(self, x1, x2, y1, y2, win):
+    def __init__(self, x1, x2, y1, y2, win=None):
         self._x1 = x1
         self._x2 = x2
         self._y1 = y1
@@ -14,6 +14,8 @@ class Cell():
         self.has_bottom_wall = True
 
     def draw(self, top_left_x, top_left_y, bottom_right_x, bottom_right_y):
+        if not self._win:
+            return
         if self.has_left_wall:
             left_wall = Line(Point(top_left_x, top_left_y), Point(top_left_x, bottom_right_y))
             self._win.draw_line(left_wall, "purple")
@@ -48,6 +50,7 @@ class Cell():
 
         # Create the line
         line = Line(Point(center_x, center_y), Point(to_x, to_y))
-        self._win.draw_line(line, fill)
+        if self.win:
+            self._win.draw_line(line, fill)
 
         
