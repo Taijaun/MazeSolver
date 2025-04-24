@@ -56,4 +56,15 @@ class Maze():
         if self.win:
             self.win.redraw()
             time.sleep(0.05)
+
+    def _break_entrance_and_exit(self):
+        # Break top wall of entrance cell
+        entrance_cell = self._cells[0][0]
+        entrance_cell.has_top_wall = False
+        self._draw_cell(0, 0)
+
+        # Break the bottom wall of exit cell
+        exit_cell = self._cells[self.num_cols-1][self.num_rows-1]
+        exit_cell.has_bottom_wall = False
+        self._draw_cell(self.num_cols-1, self.num_rows-1)
         

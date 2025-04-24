@@ -41,5 +41,20 @@ class Tests(unittest.TestCase):
             num_rows,
         )
 
+    def test_break_entrance_and_exit(self):
+        # Setup
+        maze = Maze(0, 0, 3, 3, 10, 10)
+    
+        # Before breaking walls, confirm they exist
+        self.assertTrue(maze._cells[0][0].has_top_wall)
+        self.assertTrue(maze._cells[2][2].has_bottom_wall)
+    
+        # Break entrance and exit
+        maze._break_entrance_and_exit()
+    
+        # Verify walls were broken
+        self.assertFalse(maze._cells[0][0].has_top_wall)
+        self.assertFalse(maze._cells[2][2].has_bottom_wall)
+
 if __name__ == "__main__":
     unittest.main()
