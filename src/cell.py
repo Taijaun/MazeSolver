@@ -21,25 +21,25 @@ class Cell():
         if self.has_left_wall:
             self._win.draw_line(left_wall, "purple")
         else:
-            self._win.draw_line(left_wall, "#d9d9d9")
+            self._win.draw_line(left_wall, "white")
         
         right_wall = Line(Point(bottom_right_x, top_left_y), Point(bottom_right_x, bottom_right_y))
         if self.has_right_wall:
             self._win.draw_line(right_wall, "purple")
         else:
-            self._win.draw_line(right_wall, "#d9d9d9")
+            self._win.draw_line(right_wall, "white")
 
         top_wall = Line(Point(top_left_x, top_left_y), Point(bottom_right_x, top_left_y))
         if self.has_top_wall:
             self._win.draw_line(top_wall, "purple")
         else:
-            self._win.draw_line(top_wall, "#d9d9d9")
+            self._win.draw_line(top_wall, "white")
 
         bottom_wall = Line(Point(top_left_x, bottom_right_y), Point(bottom_right_x, bottom_right_y))
         if self.has_bottom_wall:
             self._win.draw_line(bottom_wall, "purple")
         else:
-            self._win.draw_line(bottom_wall, "#9d9d9")
+            self._win.draw_line(bottom_wall, "white")
 
     def draw_move(self, to_cell, undo=False):
         fill = ""
