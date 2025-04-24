@@ -20,35 +20,35 @@ class Cell():
         
         left_wall = Line(Point(top_left_x, top_left_y), Point(top_left_x, bottom_right_y))
         if self.has_left_wall:
-            self._win.draw_line(left_wall, "purple")
+            self._win.draw_line(left_wall, "black")
         else:
-            self._win.draw_line(left_wall, "white")
+            self._win.draw_line(left_wall, "grey")
         
         right_wall = Line(Point(bottom_right_x, top_left_y), Point(bottom_right_x, bottom_right_y))
         if self.has_right_wall:
-            self._win.draw_line(right_wall, "purple")
+            self._win.draw_line(right_wall, "black")
         else:
-            self._win.draw_line(right_wall, "white")
+            self._win.draw_line(right_wall, "grey")
 
         top_wall = Line(Point(top_left_x, top_left_y), Point(bottom_right_x, top_left_y))
         if self.has_top_wall:
-            self._win.draw_line(top_wall, "purple")
+            self._win.draw_line(top_wall, "black")
         else:
-            self._win.draw_line(top_wall, "white")
+            self._win.draw_line(top_wall, "grey")
 
         bottom_wall = Line(Point(top_left_x, bottom_right_y), Point(bottom_right_x, bottom_right_y))
         if self.has_bottom_wall:
-            self._win.draw_line(bottom_wall, "purple")
+            self._win.draw_line(bottom_wall, "black")
         else:
-            self._win.draw_line(bottom_wall, "white")
+            self._win.draw_line(bottom_wall, "grey")
 
     def draw_move(self, to_cell, undo=False):
         fill = ""
 
         if undo:
-            fill = "gray"
+            fill = "purple"
         else:
-            fill = "red"
+            fill = "yellow"
 
         # Current cell center
         center_x = (self._x1 + self._x2) / 2
